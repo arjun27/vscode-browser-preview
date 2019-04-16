@@ -71,12 +71,14 @@ class App extends React.Component<any, IState> {
     };
 
     this.connection = new Connection();
+    console.log('connection created');
     this.onToolbarActionInvoked = this.onToolbarActionInvoked.bind(this);
     this.onViewportChanged = this.onViewportChanged.bind(this);
 
     this.connection.enableVerboseLogging(this.state.isVerboseMode);
 
     this.connection.on('Page.navigatedWithinDocument', (result: any) => {
+      console.log('navigating');
       this.requestNavigationHistory();
     });
 
